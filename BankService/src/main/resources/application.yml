@@ -1,0 +1,35 @@
+server:
+  port: 8085
+
+#spring:
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/banking_microservice
+#    username: root
+#    password: mySQL@123
+
+spring:
+  application:
+    name: BANK-SERVICE
+
+  profiles:
+    active: dev
+
+  #  jpa:
+#    show-sql: true
+#    hibernate:
+#      ddl-auto: update
+
+# Now we will import all configurations using Config server
+
+  config:
+    import: optional:configserver:http://localhost:8089
+
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://localhost:8761/eureka/
+#    fetch-registry: true
+#    register-with-eureka: true
+#  instance:
+#    prefer-ip-address: true
